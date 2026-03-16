@@ -23,6 +23,10 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public List<User> getUsersByRoles(List<String> roles) {
+        return userRepository.findByRoleIn(roles);
+    }
+
     public User getUserById(Integer id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
